@@ -33,7 +33,15 @@ MongoClient.connect(MONGO_URL)
   });
 
 app.get("/", (req, res) => {
-  res.json({ message: "Practice Task 11 API is running" });
+  res.json({ message: "Practice Task 12 API is running" });
+});
+
+app.get("/health", (req, res) => {
+  res.json({
+    status: "OK",
+    uptime: process.uptime(),
+    database: products ? "connected" : "not connected",
+  });
 });
 
 app.get("/api/products", async (req, res) => {
